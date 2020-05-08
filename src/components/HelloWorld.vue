@@ -28,14 +28,30 @@
       <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
     </ul>
+    <audio controls><source src="~assets/media/xch.mp3" type="audio/mpeg" crossOrigin="anonymous"></audio>
+    <button id="play" @click="_play">play</button>
+    <button id="pause" @click="_pause">pause</button>
   </div>
 </template>
 
 <script>
+const src = require("@/assets/media/xch.mp3")
+const music = new Audio(src)
+music.load()
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  methods: {
+    _play() {
+      music.load()
+      setTimeout(()=> music.play(),3000)
+      
+    },
+    _pause() {
+      music.pause()
+    }
   }
 }
 </script>
